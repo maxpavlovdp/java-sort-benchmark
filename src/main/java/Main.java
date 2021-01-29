@@ -5,17 +5,16 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-
         int size = 10_000_000;
         while (true) {
-            System.out.println("Sort time for  " + size);
-            sort(size);
+            init(size);
             size = size + 10_000_000;
         }
-
     }
 
-    private static void sort(int size) {
+    private static void init(int size) {
+
+        System.out.print("Preparing Array List with size: " + size + "... ");
         List list = new ArrayList(size);
         for (int i = 0; i < size; i++) {
             list.add(i);
@@ -23,7 +22,7 @@ public class Main {
 
         Collections.shuffle(list);
 
-        System.out.println("Starting sort...");
+        System.out.print("Sorting... ");
         long start = System.currentTimeMillis();
         Collections.sort(list);
         long stop = System.currentTimeMillis();
